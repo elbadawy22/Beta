@@ -617,7 +617,8 @@ function userProfile(getId) {
   </div>
 
   <div class="fs-1  ">
-    Mahmoud'S Posts
+            ${obj == undefined ? userId.name : obj.author.name
+      }'S Posts
   </div>
     `;
       allPosts.innerHTML = contentProfile;
