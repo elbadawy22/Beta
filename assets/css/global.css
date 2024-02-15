@@ -1,0 +1,87 @@
+body {
+  background: #dbd6eb;
+}
+.allBody {
+  max-width: 800px;
+  margin: auto;
+}
+.imgCardProfile {
+  width: 40px;
+  height: 40px;
+}
+.imgProfile{
+  width: 30px;
+  height: 30px;
+}
+.profileName{
+  font-size: 14px;
+  font-weight: 500;
+}
+.btnNewPost{
+  width: 50px;
+  height: 50px;
+  bottom: 7%;
+  left: 80%;
+  box-shadow: 0px 10px 10px rgb(0, 0,0,0.3);
+}
+.showComent{
+  height: 60vh;
+  overflow-y: scroll;
+}
+button{
+  outline: none;
+}
+.profilePageImage{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+#loaderDiv{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.384);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width:50px ;
+  max-height:50px ;
+  margin: auto;
+  border-radius: 10px;
+
+}
+
+.loader {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #FFF;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-left: 4px solid #0080FF;
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beta</title>
+    <!-- JS Fill BootStrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- CSS Fill BootStrap -->
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- Axios JS Fill -->
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <!-- Vanela Css -->
+    <link rel="stylesheet" href="assets/css/global.css" />
+  </head>
+  <body>
+
+    <!-- Open Nav Bar -->
+    <div class="">
+      <nav
+        class="navbar navbar-expand-lg rounded-bottom bg-light shadow pt-3"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand text-primary fs-1" href="#">Beta</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            id="navImgProfile"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul
+              class="navbar-nav me-auto mb-2 mb-lg-0"
+              id="navbarSupportedContent-ul"
+            ></ul>
+            <div
+              class="d-flex gap-2 justify-content-between"
+              role="search"
+              id="loginBtnHead"
+            >
+              <button
+                class="btn btn-outline-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Sign UP
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- Close Nav Bar -->
+    <div class="allBody">
+    <!-- loader -->
+    <div id="loaderDiv" hidden>
+      <span class="loader" ></span>
+    </div>
+    <!-- loader -->
+      <!-- OPen Main Content -->
+      <div class="container mt-3">
+        <!-- Posts -->
+        <div id="posts" class="d-flex flex-column gap-3">
+          <!-- Login Model -->
+          <div id="loginModel" class="mt-5">
+            <div class="bg-light container shadow p-5 rounded">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1
+                      class="modal-title fs-5 mb-3 text-center w-100"
+                      id="exampleModalLabel"
+                    >
+                      Sign in
+                    </h1>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="mb-3">
+                        <label for="username-in" class="col-form-label"
+                          >Username:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="username-in"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="pass-in" class="col-form-label"
+                          >Password:</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="pass-in"
+                        />
+                      </div>
+                      <p id="msgForm"></p>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary mt-4" id="loginBtn">
+                      Sign in
+                    </button>
+                  </div>
+                  <p
+                    class="text-primary mt-4"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    Create a New Accounte
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Login Model -->
+        </div>
+        <!-- End Posts -->
+      </div>
+      <!-- close Main Content -->
+    </div>
+
+    <!-- signUp Model -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Sign UP</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <!-- <div class="mb-3">
+                  <label for="image-up" class="col-form-label"
+                    >Profile Image:</label
+                  >
+                  <input type="file" class="form-control" id="image-up" />
+                </div> -->
+                <label for="name-up" class="col-form-label">Name:</label>
+                <input type="text" class="form-control" id="name-up" />
+              </div>
+              <div class="mb-3">
+                <label for="username-up" class="col-form-label"
+                  >Username:</label
+                >
+                <input type="text" class="form-control" id="username-up" />
+              </div>
+              <div class="mb-3">
+                <label for="password-up" class="col-form-label"
+                  >Password:</label
+                >
+                <input type="password" class="form-control" id="password-up" />
+              </div>
+              <div id="msgUp"></div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              id="close-register-up"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="create-up">
+              Create
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End SignUp Model -->
+
+    <!-- Create New Post -->
+    <div
+      class="modal fade"
+      id="createPostModel"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabe2"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabe2">
+              Create New Post
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="postTextContent" class="col-form-label"
+                  >Input Your Idea:</label
+                >
+                <textarea
+                  placeholder=" Your Idea......."
+                  class="form-control"
+                  id="postTextContent"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="imageNewPost" class="col-form-label"
+                  >Enter Your Image:</label
+                >
+                <input type="file" class="form-control" id="imageNewPost" />
+              </div>
+              <div id="msgCreatPost"></div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              id="creatPostClose"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="creaatNewPostFn()"
+            >
+              Create
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end Create New Post -->
+
+    <!-- Edit Post -->
+    <div
+      class="modal fade"
+      id="updatePostModel"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabe4"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabe4">
+              Edit Your Post
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="updateTextContent" class="col-form-label"
+                  >Input Your Idea:</label
+                >
+                <textarea
+                  placeholder=" Your Idea......."
+                  class="form-control"
+                  id="updateTextContent"
+                ></textarea>
+              </div>
+              <div class="mb-3" hidden>
+                <label for="imageUpdatePost" class="col-form-label"
+                  >Enter Your Image:</label
+                >
+                <input type="file" class="form-control" id="imageUpdatePost" />
+              </div>
+              <div id="msgUpdatePost"></div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              id="updatePostClose"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="updatePostFn()"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end Edit Post -->
+
+    <!-- Delete Post -->
+    <div
+      class="modal fade"
+      id="deletePost"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabe5"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body fs-5">Are You Sure To Delete This Post..?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              id="deletePostClose"
+            >
+              No
+            </button>
+            <button
+              type="button"
+              onclick="deletePostFinalBtn()"
+              class="btn btn-danger"
+            >
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Delete Post -->
+
+    <!-- show Coment Model -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#shwComment"
+      hidden
+      id="hiddenBtnShowComment"
+    ></button>
+
+    <div
+      class="modal fade"
+      id="shwComment"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabe3"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabe3">Comments</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="p-2">
+            <textarea
+              class="w-100 p-2"
+              id="comentInput"
+              placeholder="Enter Your Comment..."
+            ></textarea>
+            <span id="msgComment"></span>
+          </div>
+          <div
+            id="contentBodyComment"
+            class="modal-body showComent d-flex flex-column gap-3"
+          >
+            <div class="d-flex gap-2">
+              <div class="d-flex flex-column justify-content-between">
+                <img class="imgProfile" src="./profile-pics/user.png" alt="" />
+                <span></span>
+              </div>
+              <div class="bg-dark bg-opacity-10 rounded p-2">
+                <h6>UserName Any</h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Incidunt, dicta!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="creatComment">
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End show Coment Model -->
+
+    <!-- New Post Btn -->
+    <div id="newPostHtml"></div>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
